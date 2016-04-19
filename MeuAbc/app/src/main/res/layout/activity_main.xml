@@ -7,6 +7,44 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.ufpb.rivanildo.meuabc.MainActivity">
+    android:orientation="vertical"
+    tools:context="br.com.ufpb.rivanildo.meuabc.MainActivity"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ABC do(a) Filh_"
+        android:textSize="30dp"
+        android:id="@+id/textView"
+        android:layout_gravity="top|center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="60dp">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:id="@+id/imageButton2"
+            android:src="@drawable/play"
+            android:scaleType="fitXY"
+            />
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:id="@+id/imageButton"
+            android:src="@drawable/menu"
+            android:scaleType="fitXY"
+            android:layout_marginStart="30dp"/>
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,10 +20,10 @@ public class SplashActivity extends AppCompatActivity implements Runnable{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ocultarBarraDeNavegação();
         setContentView(R.layout.activity_splash);
         Handler handler = new Handler();
         ImageView img = (ImageView)findViewById(R.id.imageView);
-        ocultarBarraDeNavegação();
         handler.postDelayed(this, DELAY);
     }
 
@@ -32,9 +34,9 @@ public class SplashActivity extends AppCompatActivity implements Runnable{
         finish();
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)private void ocultarBarraDeNavegação(){
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+    private void ocultarBarraDeNavegação() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }
