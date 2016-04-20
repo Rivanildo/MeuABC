@@ -25,7 +25,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ocultarBarraDeNavegação();
-        //overridePendingTransition();
+        overridePendingTransition(R.anim.slide, R.anim.slide2);
         setContentView(R.layout.content_main2);
 
         application = (MeuABCApplication) getApplicationContext();
