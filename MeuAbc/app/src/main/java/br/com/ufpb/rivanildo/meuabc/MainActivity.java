@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void ocultarBarraDeNavegação() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
