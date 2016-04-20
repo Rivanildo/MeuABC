@@ -19,13 +19,13 @@ public class Main2Activity extends AppCompatActivity {
     private Button mProximo;
     private Button mAnterior;
 
-
     private MeuABCApplication application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ocultarBarraDeNavegação();
+        //overridePendingTransition();
         setContentView(R.layout.content_main2);
 
         application = (MeuABCApplication) getApplicationContext();
@@ -45,7 +45,7 @@ public class Main2Activity extends AppCompatActivity {
         mtexto.setText(letra.getLetra());
 
         mProximo = (Button) findViewById(R.id.proximo);
-        mProximo.setText(application.getLetra(application.getCount() + 1).getLetra());
+        mProximo.setText(application.getLetra(application.getCount() + 1).getTitulo());
         mProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +59,7 @@ public class Main2Activity extends AppCompatActivity {
         if(application.getCount()==0){
             mAnterior.setVisibility(View.GONE);
         }else{
-            mAnterior.setText(application.getLetra(application.getCount()-1).getLetra());
+            mAnterior.setText(application.getLetra(application.getCount()-1).getTitulo());
             mAnterior.setVisibility(View.VISIBLE);
             mAnterior.setOnClickListener(new View.OnClickListener() {
                 @Override

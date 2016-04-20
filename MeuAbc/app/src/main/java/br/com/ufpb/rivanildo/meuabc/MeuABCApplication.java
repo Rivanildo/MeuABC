@@ -37,26 +37,27 @@ public class MeuABCApplication extends Application {
         letras.add(new Letra("Dd","D"));
         letras.add(new Letra("Ee","E"));
         letras.add(new Letra("Ff","F"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
-//        letras.add(new Letra("Aa"));
+        letras.add(new Letra("Gg","G"));
+        letras.add(new Letra("Hh","h"));
+        letras.add(new Letra("Ii","I"));
+        letras.add(new Letra("Jj","j"));
+        letras.add(new Letra("Kk","K"));
+        letras.add(new Letra("Ll","L"));
+        letras.add(new Letra("Mm","m"));
+        letras.add(new Letra("Nn","N"));
+        letras.add(new Letra("Oo","O"));
+        letras.add(new Letra("Pp","p"));
+        letras.add(new Letra("Qq","q"));
+        letras.add(new Letra("Rr","R"));
+        letras.add(new Letra("Ss","s"));
+        letras.add(new Letra("Tt","t"));
+        letras.add(new Letra("Uu","u"));
+        letras.add(new Letra("Vv","v"));
+        letras.add(new Letra("Ww","w"));
+        letras.add(new Letra("Xx","x"));
+        letras.add(new Letra("Yy","Y"));
+        letras.add(new Letra("Zz","Z"));
+
 
     }
 

@@ -9,15 +9,10 @@ public class Letra implements Serializable {
 
     private String letra;
     private String urlAudio;
-
-    public String getTitulo() {
-        return titulo;
-    }
-
     private String titulo;
 
-    public Letra(String aA, String titulo) {
-        this.letra = aA;
+    public Letra(String letra, String titulo) {
+        this.letra = letra;
         this.titulo = titulo;
     }
 
@@ -35,5 +30,9 @@ public class Letra implements Serializable {
 
     public void setUrlAudio(String urlAudio) {
         this.urlAudio = urlAudio;
+    }
+
+    public String getTitulo() {
+        return titulo;
     }
 }
