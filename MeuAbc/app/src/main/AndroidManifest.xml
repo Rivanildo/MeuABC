@@ -19,8 +19,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape"></activity>
-        <activity android:name=".Main2Activity"></activity>
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Main2Activity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

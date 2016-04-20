@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity implements Runnable{
 
-    private static final int DELAY = 7000;
+    private static final int DELAY = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

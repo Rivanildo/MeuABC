@@ -34,6 +34,7 @@
             android:layout_height="130dp"
             android:id="@+id/imgPlay"
             android:src="@drawable/play2"
+            android:clickable="true"
             android:scaleType="fitXY"
             />
 
@@ -42,6 +43,7 @@
             android:layout_height="130dp"
             android:id="@+id/imgMenu"
             android:src="@drawable/menu"
+            android:clickable="true"
             android:scaleType="fitXY"
             android:layout_marginStart="30dp"/>
     </LinearLayout>
