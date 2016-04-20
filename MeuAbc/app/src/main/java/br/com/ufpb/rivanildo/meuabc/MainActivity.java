@@ -23,7 +23,15 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Main2Activity.class));
+                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+            }
+        });
+
+        ImageView imageView2 = (ImageView) findViewById(R.id.imgMenu);
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MenuActivity.class));
             }
         });
     }
