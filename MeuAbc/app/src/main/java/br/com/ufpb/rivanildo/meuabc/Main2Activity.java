@@ -1,6 +1,7 @@
 package br.com.ufpb.rivanildo.meuabc;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -43,6 +44,8 @@ public class Main2Activity extends AppCompatActivity {
 
         mtexto = (TextView) findViewById(R.id.txt);
         mtexto.setText(letra.getLetra());
+        Typeface fonte = Typeface.createFromAsset(this.getAssets(), "fonts/klee.ttc");
+        mtexto.setTypeface(fonte);
 
         mProximo = (Button) findViewById(R.id.proximo);
         if(application.getCount()==25){
