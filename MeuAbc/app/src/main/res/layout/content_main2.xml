@@ -11,29 +11,31 @@
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
+        android:layout_width="158dp"
+        android:layout_height="156dp"
+        android:layout_gravity="bottom|start|right"
         fab:menu_colorNormal="#FFFF"
+        fab:fab_size="mini"
         fab:menu_colorPressed="#0000"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="15dp"
         fab:menu_labels_ellipsize="start"
-        fab:menu_labels_singleLine="true">
+        fab:menu_labels_singleLine="false">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_size="mini"
-            fab:fab_label="Facebook"
             fab:fab_colorNormal="#FFFF"
-            fab:fab_colorPressed="#0000"/>
+            fab:fab_colorPressed="#0000" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_size="mini"
-            fab:fab_label="Google Plus"
+            android:src="@drawable/microphone"
             fab:fab_colorNormal="#FFFF"
             fab:fab_colorPressed="#0000"/>
 
@@ -42,7 +44,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Play"
+
         android:id="@+id/play"
         android:layout_gravity="center_horizontal|bottom" />
 
@@ -57,14 +60,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Anterior"
         android:id="@+id/anterior"
         android:layout_gravity="left|center_vertical" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="home"
         android:id="@+id/button4"
         android:layout_gravity="left|top" />
 
