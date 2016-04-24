@@ -24,7 +24,7 @@ public class VoiceRecorder extends AppCompatActivity {
 
     private void onRecord() {
         boolean start;
-        Button myButton = (Button) findViewById(R.id.startRecordingButton);
+        Button myButton = (Button) findViewById(R.id.bt_gravar);
         String buttonString = myButton.getText().toString();
         if(buttonString.equals("Start Recording")){
             start = true;
@@ -42,7 +42,7 @@ public class VoiceRecorder extends AppCompatActivity {
             }
         } else {
             myButton.setText("Start Recording");
-            Button playButton = (Button) findViewById(R.id.startPlayingButton);
+            Button playButton = (Button) findViewById(R.id.bt_reproduzir);
             playButton.setEnabled(true);
             stopRecording();
         }
@@ -50,7 +50,7 @@ public class VoiceRecorder extends AppCompatActivity {
 
     private void onPlay() {
         boolean start;
-        Button myButton = (Button) findViewById(R.id.startPlayingButton);
+        Button myButton = (Button) findViewById(R.id.bt_reproduzir);
         String buttonString = myButton.getText().toString();
         if(buttonString.equals("Start Playing")){
             start = true;
@@ -116,14 +116,14 @@ public class VoiceRecorder extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        setContentView(R.layout.activity_voice_recorder);
-        Button myRecordButton = (Button) findViewById(R.id.startRecordingButton);
+        //setContentView(R.layout.activity_voice_recorder);
+        Button myRecordButton = (Button) findViewById(R.id.bt_gravar);
         myRecordButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onRecord();
             }
         });
-        Button myPlayButton = (Button) findViewById(R.id.startPlayingButton);
+        Button myPlayButton = (Button) findViewById(R.id.bt_reproduzir);
         myPlayButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onPlay();
