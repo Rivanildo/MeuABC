@@ -15,8 +15,8 @@
         android:layout_height="156dp"
         android:layout_gravity="bottom|start|right"
         fab:menu_colorNormal="#FFFF"
-        fab:fab_size="mini"
         fab:menu_colorPressed="#0000"
+        app:menu_icon="@drawable/settings"
         android:layout_marginBottom="0dp"
         android:layout_marginLeft="15dp"
         fab:menu_labels_ellipsize="start"
@@ -27,15 +27,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_size="mini"
+            android:src="@drawable/photolibrary"
             fab:fab_colorNormal="#FFFF"
             fab:fab_colorPressed="#0000" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             fab:fab_size="mini"
-            android:src="@drawable/microphone"
+            android:src="@drawable/mic2"
             fab:fab_colorNormal="#FFFF"
             fab:fab_colorPressed="#0000"/>
 
