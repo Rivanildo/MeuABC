@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -28,7 +29,7 @@ public class Main2Activity extends AppCompatActivity {
     private Button mAnterior;
 
     private FloatingActionButton mGravar;
-    private FloatingActionMenu mSelecImagem;
+    private FloatingActionButton mSelecImagem;
 
     private Button mGrava;
     private Button mReproduz;
@@ -126,6 +127,16 @@ public class Main2Activity extends AppCompatActivity {
                         voiceRecorder.onPlay();
                     }
                 });
+            }
+        });
+
+        mSelecImagem = (FloatingActionButton)findViewById(R.id.fab1);
+        mSelecImagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context c = getApplication();
+                String m = "Ainda não implementado";
+                Toast.makeText(c,m,Toast.LENGTH_SHORT).show();
             }
         });
 
