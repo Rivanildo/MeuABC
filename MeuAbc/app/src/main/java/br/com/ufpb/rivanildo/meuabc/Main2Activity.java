@@ -36,6 +36,8 @@ public class Main2Activity extends AppCompatActivity {
 
     private MeuABCApplication application;
 
+    private int posicaoLetra;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +53,11 @@ public class Main2Activity extends AppCompatActivity {
         if(getIntent().getExtras() != null){
             int i = getIntent().getExtras().getInt("idx");
             letra = application.getLetra(i);
+            posicaoLetra = i;
         }else{
             letra = application.getLetra(application.getCount());
+            posicaoLetra = application.getCount();
+
 
         }
 
@@ -66,12 +71,12 @@ public class Main2Activity extends AppCompatActivity {
         if(application.getCount()==25){
             mProximo.setVisibility(View.GONE);
         } else{
-            mProximo.setText(application.getLetra(application.getCount() + 1).getTitulo());
+            mProximo.setText(application.getLetra(posicaoLetra + 1).getTitulo());
             mProximo.setVisibility(View.VISIBLE);
             mProximo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    application.setCount();
+                    application.setCount(posicaoLetra);
                     startActivity(new Intent(Main2Activity.this, Main2Activity.class));
                     finish();
                 }
@@ -84,12 +89,12 @@ public class Main2Activity extends AppCompatActivity {
         if(application.getCount()==0){
             mAnterior.setVisibility(View.GONE);
         }else{
-            mAnterior.setText(application.getLetra(application.getCount()-1).getTitulo());
+            mAnterior.setText(application.getLetra(posicaoLetra-1).getTitulo());
             mAnterior.setVisibility(View.VISIBLE);
             mAnterior.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    application.setCount2();
+                    application.setCount2(posicaoLetra);
                     startActivity(new Intent(Main2Activity.this, Main2Activity.class));
                     finish();
                 }

@@ -14,8 +14,8 @@ public class MeuABCApplication extends Application {
         return count;
     }
 
-    public void setCount() {
-        this.count +=1 ;
+    public void setCount(int a) {
+        this.count =a+1 ;
     }
 
     private int count;
@@ -66,8 +66,8 @@ public class MeuABCApplication extends Application {
     }
 
 
-    public void setCount2() {
-        this.count -=1 ;
+    public void setCount2(int a) {
+        this.count = a-1 ;
 
     }
 
