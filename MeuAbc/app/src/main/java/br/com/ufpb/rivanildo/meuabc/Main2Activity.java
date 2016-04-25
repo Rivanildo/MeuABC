@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
 
@@ -24,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
     private TextView mtexto;
     private Button mProximo;
     private Button mAnterior;
-    private FloatingActionMenu mGravar;
+    private FloatingActionButton mGravar;
     private FloatingActionMenu mSelecImagem;
 
     private MeuABCApplication application;
@@ -36,7 +38,6 @@ public class Main2Activity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide2, R.anim.slide);
         setContentView(R.layout.content_main2);
 
-        mGravar = (FloatingActionMenu)findViewById(R.id.fab2);
 
         application = (MeuABCApplication) getApplicationContext();
 
@@ -91,14 +92,17 @@ public class Main2Activity extends AppCompatActivity {
         }
 
         // botão de gravar
+        mGravar = (FloatingActionButton) findViewById(R.id.fab2);
 
-        mGravar = (FloatingActionMenu)findViewById(R.id.fab2);
+        mGravar = (FloatingActionButton)findViewById(R.id.fab2);
         mGravar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View view = inflater.inflate(R.layout.activity_recorder, null);
                 Dialog dialog = new Dialog(Main2Activity.this);
+                dialog.setTitle("Gravar áudio");
+                //dialog.set
                 dialog.setContentView(view);
                 dialog.show();
             }
