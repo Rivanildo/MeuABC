@@ -11,8 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="play"
-        android:id="@+id/bt_reproduzir" />
+        android:text="Reproduzir"
+        android:id="@+id/bt_reproduzir"
+        android:layout_gravity="center_horizontal" />
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -22,7 +23,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prin"
+            android:text="Iniciar"
             android:id="@+id/bt_gravar" />
 
         <Button

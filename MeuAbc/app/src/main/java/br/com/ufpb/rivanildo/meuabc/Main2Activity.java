@@ -26,8 +26,12 @@ public class Main2Activity extends AppCompatActivity {
     private TextView mtexto;
     private Button mProximo;
     private Button mAnterior;
+
     private FloatingActionButton mGravar;
     private FloatingActionMenu mSelecImagem;
+
+    private Button mGrava;
+    private Button mReproduz;
 
     private MeuABCApplication application;
 
@@ -91,8 +95,11 @@ public class Main2Activity extends AppCompatActivity {
             });
         }
 
-        // botão de gravar
+        // botão floating de gravar
         mGravar = (FloatingActionButton) findViewById(R.id.fab2);
+
+        mGrava = (Button)findViewById(R.id.bt_gravar);
+        mReproduz = (Button)findViewById(R.id.bt_reproduzir);
 
         mGravar = (FloatingActionButton)findViewById(R.id.fab2);
         mGravar.setOnClickListener(new View.OnClickListener() {
@@ -102,9 +109,22 @@ public class Main2Activity extends AppCompatActivity {
                 View view = inflater.inflate(R.layout.activity_recorder, null);
                 Dialog dialog = new Dialog(Main2Activity.this);
                 dialog.setTitle("Gravar áudio");
-                //dialog.set
                 dialog.setContentView(view);
                 dialog.show();
+                final VoiceRecorder voiceRecorder = new VoiceRecorder(mGrava,mReproduz);
+
+//                mGrava.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        voiceRecorder.onRecord();
+//                    }
+//                });
+//                mReproduz.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        voiceRecorder.onPlay();
+//                    }
+//                });
             }
         });
 

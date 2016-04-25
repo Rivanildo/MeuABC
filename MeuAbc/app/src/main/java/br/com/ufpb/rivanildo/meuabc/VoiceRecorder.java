@@ -22,11 +22,18 @@ public class VoiceRecorder extends AppCompatActivity {
 
     private MediaPlayer   mPlayer = null;
 
-    private void onRecord() {
+    private Button gravar;
+    private Button reproduzir;
+
+    public VoiceRecorder(Button gravar, Button reproduzir) {
+        this.gravar = gravar;
+        this.reproduzir = reproduzir;
+    }
+
+    public void onRecord() {
         boolean start;
-        Button myButton = (Button) findViewById(R.id.bt_gravar);
-        String buttonString = myButton.getText().toString();
-        if(buttonString.equals("Start Recording")){
+        String buttonString = gravar.getText().toString();
+        if(buttonString.equals("Iniciar")){
             start = true;
         }
         else{
@@ -35,34 +42,32 @@ public class VoiceRecorder extends AppCompatActivity {
 
         if (start) {
             try {
-                myButton.setText("Stop Recording");
+                gravar.setText("Parar");
                 startRecording();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            myButton.setText("Start Recording");
-            Button playButton = (Button) findViewById(R.id.bt_reproduzir);
-            playButton.setEnabled(true);
+            gravar.setText("Iniciar");
+            reproduzir.setEnabled(true);
             stopRecording();
         }
     }
 
-    private void onPlay() {
+    public void onPlay() { //reproduzir
         boolean start;
-        Button myButton = (Button) findViewById(R.id.bt_reproduzir);
-        String buttonString = myButton.getText().toString();
-        if(buttonString.equals("Start Playing")){
+        String buttonString = reproduzir.getText().toString();
+        if(buttonString.equals("Reproduzir")){
             start = true;
         }
         else{
             start = false;
         }
         if (start) {
-            myButton.setText("Stop Playing");
+            reproduzir.setText("Parar");
             startPlaying();
         } else {
-            myButton.setText("Start Playing");
+            reproduzir.setText("Reproduzir");
             stopPlaying();
         }
     }
@@ -112,25 +117,25 @@ public class VoiceRecorder extends AppCompatActivity {
         mFileName += "/audiorecordtest.3gp";
     }
 
-    @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-
-        //setContentView(R.layout.activity_voice_recorder);
-        Button myRecordButton = (Button) findViewById(R.id.bt_gravar);
-        myRecordButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                onRecord();
-            }
-        });
-        Button myPlayButton = (Button) findViewById(R.id.bt_reproduzir);
-        myPlayButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                onPlay();
-            }
-        });
-
-    }
+//    @Override
+//    public void onCreate(Bundle icicle) {
+//        super.onCreate(icicle);
+//
+//        //setContentView(R.layout.activity_voice_recorder);
+//        //Button myRecordButton = gravar;
+//        gravar.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                onRecord();
+//            }
+//        });
+//       // Button myPlayButton = reproduzir;
+//        reproduzir.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                onPlay();
+//            }
+//        });
+//
+//    }
 
     @Override
     public void onPause() {
