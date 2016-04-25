@@ -98,8 +98,7 @@ public class Main2Activity extends AppCompatActivity {
         // botão floating de gravar
         mGravar = (FloatingActionButton) findViewById(R.id.fab2);
 
-        mGrava = (Button)findViewById(R.id.bt_gravar);
-        mReproduz = (Button)findViewById(R.id.bt_reproduzir);
+
 
         mGravar = (FloatingActionButton)findViewById(R.id.fab2);
         mGravar.setOnClickListener(new View.OnClickListener() {
@@ -111,20 +110,22 @@ public class Main2Activity extends AppCompatActivity {
                 dialog.setTitle("Gravar áudio");
                 dialog.setContentView(view);
                 dialog.show();
+                mGrava = (Button)view.findViewById(R.id.bt_gravar);
+                mReproduz = (Button)view.findViewById(R.id.bt_reproduzir);
                 final VoiceRecorder voiceRecorder = new VoiceRecorder(mGrava,mReproduz);
 
-//                mGrava.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        voiceRecorder.onRecord();
-//                    }
-//                });
-//                mReproduz.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        voiceRecorder.onPlay();
-//                    }
-//                });
+                mGrava.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        voiceRecorder.onRecord();
+                    }
+                });
+                mReproduz.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        voiceRecorder.onPlay();
+                    }
+                });
             }
         });
 
