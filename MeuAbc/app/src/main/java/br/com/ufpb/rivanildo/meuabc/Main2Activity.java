@@ -33,6 +33,9 @@ public class Main2Activity extends AppCompatActivity {
 
     private Button mGrava;
     private Button mReproduz;
+    private Button mSalvar;
+    private Button mCancelar;
+
 
     private MeuABCApplication application;
 
@@ -112,12 +115,15 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View view = inflater.inflate(R.layout.activity_recorder, null);
-                Dialog dialog = new Dialog(Main2Activity.this);
+                final Dialog dialog = new Dialog(Main2Activity.this);
                 dialog.setTitle("Gravar áudio");
                 dialog.setContentView(view);
                 dialog.show();
                 mGrava = (Button)view.findViewById(R.id.bt_gravar);
                 mReproduz = (Button)view.findViewById(R.id.bt_reproduzir);
+                mSalvar = (Button)view.findViewById(R.id.salvar);
+                mCancelar = (Button)view.findViewById(R.id.cancelar);
+
                 final VoiceRecorder voiceRecorder = new VoiceRecorder(mGrava,mReproduz);
 
                 mGrava.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +136,12 @@ public class Main2Activity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         voiceRecorder.onPlay();
+                    }
+                });
+                mCancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
                     }
                 });
             }

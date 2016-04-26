@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main2Activity">
-
+    tools:context=".Main2Activity"
+    >
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Iniciar"
+        android:id="@+id/bt_gravar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Reproduzir"
         android:id="@+id/bt_reproduzir"
-        android:layout_gravity="center_horizontal" />
+        android:layout_above="@+id/salvar"
+        android:layout_alignParentEnd="true" />
 
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:id="@+id/salvar"
+        android:layout_below="@+id/bt_gravar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="59dp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Iniciar"
-            android:id="@+id/bt_gravar" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:id="@+id/bt_cancelar"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" />
-    </RelativeLayout>
-
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:id="@+id/cancelar"
+        android:layout_alignTop="@+id/salvar"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
