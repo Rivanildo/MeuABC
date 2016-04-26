@@ -15,6 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="ABC do(a) Filh_"
         android:textSize="30dp"
