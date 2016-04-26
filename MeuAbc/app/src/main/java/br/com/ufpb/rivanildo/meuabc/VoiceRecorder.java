@@ -17,17 +17,24 @@ import java.io.IOException;
 public class VoiceRecorder extends AppCompatActivity {
     private static final String LOG_TAG = "AudioRecordTest";
     private static String mFileName = null;;
+    private  String path;
 
     private MediaRecorder mRecorder = null;
 
     private MediaPlayer   mPlayer = null;
 
     private Button gravar;
+    private String titulo;
     private Button reproduzir;
 
-    public VoiceRecorder(Button gravar, Button reproduzir) {
+    public VoiceRecorder(String path) {
+        this.path = path;
+    }
+
+    public VoiceRecorder(Button gravar, Button reproduzir, String titulo) {
         this.gravar = gravar;
         this.reproduzir = reproduzir;
+        this.titulo = titulo;
     }
 
     public void onRecord() {
@@ -83,6 +90,17 @@ public class VoiceRecorder extends AppCompatActivity {
         }
     }
 
+    public void startPlaying2() {
+        mPlayer = new MediaPlayer();
+        try {
+            mPlayer.setDataSource(path);
+            mPlayer.prepare();
+            mPlayer.start();
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "prepare() failed");
+        }
+    }
+
     private void stopPlaying() {
         mPlayer.release();
         mPlayer = null;
@@ -90,8 +108,7 @@ public class VoiceRecorder extends AppCompatActivity {
 
     private void startRecording() throws IOException {
         mRecorder = new MediaRecorder();
-        AudioRecordTest();
-        //mFileName = Environment.getExternalStorageDirectory().getAbsolutePath().substring(8) + "/audio/" +  System.currentTimeMillis()+ ".3gp";
+        AudioRecordString();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mRecorder.setOutputFile(mFileName);
@@ -112,30 +129,14 @@ public class VoiceRecorder extends AppCompatActivity {
         mRecorder = null;
     }
 
-    public void AudioRecordTest() {
+    public void AudioRecordString() {
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/audiorecordtest.3gp";
+        mFileName += "/audiorecord_"+titulo+".3gp";
     }
 
-//    @Override
-//    public void onCreate(Bundle icicle) {
-//        super.onCreate(icicle);
-//
-//        //setContentView(R.layout.activity_voice_recorder);
-//        //Button myRecordButton = gravar;
-//        gravar.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                onRecord();
-//            }
-//        });
-//       // Button myPlayButton = reproduzir;
-//        reproduzir.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                onPlay();
-//            }
-//        });
-//
-//    }
+    public static String getmFileName() {
+        return mFileName;
+    }
 
     @Override
     public void onPause() {

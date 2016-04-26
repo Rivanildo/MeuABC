@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,9 @@ public class Main2Activity extends AppCompatActivity {
     private Button mReproduz;
     private Button mSalvar;
     private Button mCancelar;
+    private Button mPlay;
+
+    private ManagerDB managerDB;
 
 
     private MeuABCApplication application;
@@ -50,8 +54,9 @@ public class Main2Activity extends AppCompatActivity {
 
 
         application = (MeuABCApplication) getApplicationContext();
+        managerDB = new ManagerDB(this);
 
-        Letra letra;
+        final Letra letra;
 
         if(getIntent().getExtras() != null){
             int i = getIntent().getExtras().getInt("idx");
@@ -68,6 +73,8 @@ public class Main2Activity extends AppCompatActivity {
         // botão próximo
         mtexto = (TextView) findViewById(R.id.txt);
         mtexto.setText(letra.getLetra());
+
+        final String titulo = letra.getTitulo();
 
 
         mProximo = (Button) findViewById(R.id.proximo);
@@ -124,7 +131,7 @@ public class Main2Activity extends AppCompatActivity {
                 mSalvar = (Button)view.findViewById(R.id.salvar);
                 mCancelar = (Button)view.findViewById(R.id.cancelar);
 
-                final VoiceRecorder voiceRecorder = new VoiceRecorder(mGrava,mReproduz);
+                final VoiceRecorder voiceRecorder = new VoiceRecorder(mGrava,mReproduz,titulo);
 
                 mGrava.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -144,6 +151,31 @@ public class Main2Activity extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
+
+                mSalvar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String caminho = voiceRecorder.getmFileName();
+                        letra.setUrlAudio(caminho);
+                        managerDB.addPath(titulo, caminho);
+                        dialog.cancel();
+                    }
+                });
+            }
+        });
+        mPlay = (Button)findViewById(R.id.play);
+        mPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String lol = managerDB.getPath(titulo);
+                if(lol == null){
+                    Toast.makeText(Main2Activity.this,"audio ainda não gravado",Toast.LENGTH_SHORT).show();
+                }else{
+                    Log.e("lol", lol);
+                    VoiceRecorder voiceRecorder = new VoiceRecorder(lol);
+                    voiceRecorder.startPlaying2();
+
+                }
             }
         });
 
