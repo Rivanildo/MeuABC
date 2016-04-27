@@ -15,15 +15,18 @@ import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity implements Runnable{
 
-    private static final int DELAY = 1000; // alterar depois
+    private static final int DELAY = 6000; // alterar depois
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ocultarBarraDeNavegação();
+        ocultarBarraDeNavegacao();
         setContentView(R.layout.activity_splash);
         Handler handler = new Handler();
         ImageView img = (ImageView)findViewById(R.id.imageView);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(img, "alpha",0f,1f);
+        objectAnimator.setDuration(4000);
+        objectAnimator.start();
         handler.postDelayed(this, DELAY);
     }
 
@@ -34,7 +37,7 @@ public class SplashActivity extends AppCompatActivity implements Runnable{
         finish();
     }
 
-    private void ocultarBarraDeNavegação() {
+    private void ocultarBarraDeNavegacao() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
