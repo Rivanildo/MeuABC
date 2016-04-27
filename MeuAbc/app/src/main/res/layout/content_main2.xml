@@ -73,7 +73,7 @@
         android:src="@drawable/house"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-        android:id="@+id/button4"
+        android:id="@+id/home"
         android:layout_gravity="left|top" />
 
 

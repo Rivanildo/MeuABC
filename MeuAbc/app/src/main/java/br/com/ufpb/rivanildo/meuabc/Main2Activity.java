@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.Window;
 import android.view.WindowManager;
@@ -37,6 +38,8 @@ public class Main2Activity extends AppCompatActivity {
     private Button mSalvar;
     private Button mCancelar;
     private Button mPlay;
+
+    private ImageView mHome;
 
     private ManagerDB managerDB;
 
@@ -70,6 +73,17 @@ public class Main2Activity extends AppCompatActivity {
         }
 
 
+        mHome = (ImageView)findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main2Activity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+
         // botão próximo
         mtexto = (TextView) findViewById(R.id.txt);
         mtexto.setText(letra.getLetra());
@@ -89,6 +103,7 @@ public class Main2Activity extends AppCompatActivity {
                     application.setCount(posicaoLetra);
                     startActivity(new Intent(Main2Activity.this, Main2Activity.class));
                     finish();
+
                 }
             });
         }
@@ -96,7 +111,7 @@ public class Main2Activity extends AppCompatActivity {
         // botão anterior
 
         mAnterior = (Button) findViewById(R.id.anterior);
-        if(application.getCount()==0){
+        if(letra.getTitulo().equalsIgnoreCase("A")){
             mAnterior.setVisibility(View.GONE);
         }else{
             mAnterior.setText(application.getLetra(posicaoLetra-1).getTitulo());
