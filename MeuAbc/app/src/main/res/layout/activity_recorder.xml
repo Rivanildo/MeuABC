@@ -13,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Iniciar"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/bt_gravar"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -21,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reproduzir"
+        android:layout_marginRight="50dp"
         android:id="@+id/bt_reproduzir"
         android:layout_above="@+id/salvar"
         android:layout_alignParentEnd="true" />
@@ -29,10 +32,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Salvar"
+        android:layout_marginTop="25dp"
         android:id="@+id/salvar"
         android:layout_below="@+id/bt_gravar"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="59dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
