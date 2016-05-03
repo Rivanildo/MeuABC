@@ -95,17 +95,32 @@ public class Main2Activity extends AppCompatActivity {
         if(application.getCount()==25){
             mProximo.setVisibility(View.GONE);
         } else{
-            mProximo.setText(application.getLetra(posicaoLetra + 1).getTitulo());
-            mProximo.setVisibility(View.VISIBLE);
-            mProximo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    application.setCount(posicaoLetra);
-                    startActivity(new Intent(Main2Activity.this, Main2Activity.class));
-                    finish();
+            if(letra.getTitulo()!="Z"){
+                mProximo.setText(application.getLetra(posicaoLetra + 1).getTitulo());
+                mProximo.setVisibility(View.VISIBLE);
+                mProximo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        application.setCount(posicaoLetra);
+                        startActivity(new Intent(Main2Activity.this, Main2Activity.class));
+                        finish();
 
-                }
-            });
+                    }
+                });
+            }else{
+                mProximo.setVisibility(View.GONE);
+
+                mProximo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        application.setCount(posicaoLetra);
+                        startActivity(new Intent(Main2Activity.this, Main2Activity.class));
+                        finish();
+
+                    }
+                });
+            }
+
         }
 
         // botão anterior
@@ -216,7 +231,7 @@ public class Main2Activity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        Typeface fonte = Typeface.createFromAsset(this.getAssets(), "fonts/klee.ttc");
+        Typeface fonte = Typeface.createFromAsset(this.getAssets(), "fonts/penmanship.ttf");
         mtexto.setTypeface(fonte);
         super.onResume();
     }
